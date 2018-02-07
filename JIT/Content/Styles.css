@@ -1,0 +1,142 @@
+﻿*{
+    margin:0px;
+}
+
+body {
+    background-color: #2b2b2b;
+}
+#drawing-container{
+    margin-top:20px;
+}
+#drawing-area {
+    position: relative;
+    width: 70%;
+    height:800px;
+    float: left;
+    background-color: white;
+    overflow:scroll;
+}
+
+#drawing-controls {
+    float: left;
+    width: 10%;
+    height: 800px;
+    border-style: solid none;
+    border-color: dimgray;
+    box-sizing: border-box;
+}
+#drawing-model{
+    float:left;
+    height:800px;
+    overflow:scroll;
+    width:20%;
+}
+canvas{
+    width:2000px;
+    height:2000px;
+    position:absolute;    
+}
+ul {
+    list-style-type: none;
+}
+.btn-draw {
+    display: block;
+    width:100%;
+    height:25px;
+    background-color: #2b2b2b;
+    color:#8b8b8b;
+    border:none;
+    font-size:15px;
+    text-align:left;
+}
+.btn-draw:hover {
+    background-color:#6c6c6c;
+}
+.btn-draw:focus, .model-input{
+    outline:0;
+}
+.btn-selected {
+    background-color: #FF851B;
+    color: #000000;
+}
+#model-tree, #model-editor {
+    height: 50%;
+    color: #8b8b8b;
+    box-sizing: border-box;
+    padding-left: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#model-editor {
+    border-top: ridge;
+    border-width:10px;
+    border-color: #797979;
+}
+#drawing-tree {
+    height: 800px;
+    border-style: solid none;
+    border-color: dimgray;
+    box-sizing: border-box;
+}
+.model-input  {
+    background-color: transparent;
+    color: #8b8b8b;
+    border-color: transparent;
+    border-width: 1px;
+    width: 50%;
+    box-sizing: border-box;
+}
+.node-content{
+    padding-left:20px;
+}
+.node-container{
+    padding-bottom:10px;
+}
+.node-name {
+    display: inline;
+    cursor: pointer;
+}
+
+.list-item {
+    cursor:pointer;
+}
+
+.node-editor-container{
+    padding-right:50px;
+    padding-top:20px;
+}
+.property-container {
+    float:right;
+    padding:10px 0px;
+}
+.editor-input{
+   border-radius:5px;
+   border:1px solid black;
+   background-color:dimgray;
+}
+.editor-input:focus {
+    box-shadow: 0 0 2pt 2pt dimgray;
+}
+
+#error-message {
+    background-color: #a12525;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 300px;
+    width: 300px;
+    border-radius: 10px;
+    position: absolute;
+    display: none;
+    top: 5px;
+    left: 5px;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: dimgray;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #FF851B;
+    
+}
