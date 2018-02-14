@@ -1,0 +1,54 @@
+﻿@model JIT.Models.User
+@{ 
+    ViewBag.Title = "Registration";
+}
+
+
+@if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+{
+    <div>Your account has been successfully created. Confirmation email has been sent to:<strong>@Model.Email</strong> </div>
+}
+else
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken();
+        <div class="reg-form">
+            @Html.ValidationSummary(true, "", new { @class = "error-text" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, new { @class = "form-label" })
+                <div class="form-editor-container">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "error-text" })
+                    @Html.ValidationMessage("UserNameExists", new { @class = "error-text" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "form-label" })
+                <div class="form-editor-container">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "error-text" })
+                    @Html.ValidationMessage("EmailExists",new {@class="error-text" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, new { @class = "form-label" })
+                <div class="form-editor-container">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "error-text" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ConfirmPassword, new { @class = "form-label" })
+                <div class="form-editor-container">
+                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "error-text" })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn-submit" />
+            </div>
+        </div>
+        
+    }
+}

@@ -1,109 +1,99 @@
 ﻿
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+@section modeling_head
+{
     <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
     <script src="~/Scripts/jquery-3.2.1.js"></script>
     <script src="~/Scripts/Modeling.js"></script>
-</head>
-<body>
-    <div id="drawing-container"> 
-        <div id="drawing-controls">
-            <button class="btn-draw" value="0">Place</button>
-            <button class="btn-draw" value="1">Transition</button>
-            <button class="btn-draw" value="2">Edge</button>
-        </div>
-        <div id="drawing-area">
-            <canvas id="canvas-grid"></canvas>
-            <canvas id="canvas"></canvas>
-            <canvas id="canvas-edit"></canvas>
-            <div id="error-message"></div>
-        </div>
-        <div id="drawing-tree">
-            <div id="model-tree">
+}
+<div id="drawing-container"> 
+    <div id="drawing-controls">
+        <button class="btn-draw" value="0">Place</button>
+        <button class="btn-draw" value="1">Transition</button>
+        <button class="btn-draw" value="2">Edge</button>
+    </div>
+    <div id="drawing-area">
+        <canvas id="canvas-grid"></canvas>
+        <canvas id="canvas"></canvas>
+        <canvas id="canvas-edit"></canvas>
+        <div id="error-message"></div>
+    </div>
+    <div id="drawing-tree">
+        <div id="model-tree">
                 
-            </div>
-            <div id="model-editor">
+        </div>
+        <div id="model-editor">
 
+        </div>
+    </div>
+</div>
+<template id="node-template">
+    <div class="node-container">
+        <div class="node-header">
+            <img src="~/Content/Images/Arrow-down.png" class="img-exp-content">
+            <div class="node-name" role="button"></div>
+        </div>
+        <div class="node-content">
+            <div class="inputs-header">
+                <img src="~/Content/Images/Arrow-down.png" class="img-exp-inputs">
+                <span class="node-inputs">Inputs</span>
+            </div>
+            <div class="node-inputs-list-container">
+                <ul class="node-inputs-list"></ul>
+            </div>
+            <div class="inputs-header">
+                <img src="~/Content/Images/Arrow-down.png" class="img-exp-outputs">
+                <span class="node-outputs">Outputs</span>
+            </div>
+            <div class="node-outputs-list-container">
+                <ul class="node-outputs-list"></ul>
             </div>
         </div>
     </div>
-    <template id="node-template">
-        <div class="node-container">
-            <div class="node-header">
-                <img src="~/Content/Images/Arrow-down.png" class="img-exp-content">
-                <div class="node-name" role="button"></div>
-            </div>
-            <div class="node-content">
-                <div class="inputs-header">
-                    <img src="~/Content/Images/Arrow-down.png" class="img-exp-inputs">
-                    <span class="node-inputs">Inputs</span>
-                </div>
-                <div class="node-inputs-list-container">
-                    <ul class="node-inputs-list"></ul>
-                </div>
-                <div class="inputs-header">
-                    <img src="~/Content/Images/Arrow-down.png" class="img-exp-outputs">
-                    <span class="node-outputs">Outputs</span>
-                </div>
-                <div class="node-outputs-list-container">
-                    <ul class="node-outputs-list"></ul>
-                </div>
-            </div>
+</template>
+
+<template id="list-item-template">
+    <li class="list-item">
+        <span class="list-item-text"></span>
+    </li>
+</template>
+
+<template id="place-node-editor-template">
+    <div class="node-editor-container">
+        <div class="property-container">
+            <span class="editor-label">Name</span>
+            <input type="text" class="editor-input name" />
         </div>
-    </template>
-
-    <template id="list-item-template">
-        <li class="list-item">
-            <span class="list-item-text"></span>
-        </li>
-
-    </template>
-
-    <template id="place-node-editor-template">
-        <div class="node-editor-container">
-            <div class="property-container">
-                <span class="editor-label">Name</span>
-                <input type="text" class="editor-input name" />
-            </div>
-            <div class="property-container">
-                <span class="editor-label">Tokens count</span>
-                <input type="text" class="editor-input tokenscount" />
-            </div>
+        <div class="property-container">
+            <span class="editor-label">Tokens count</span>
+            <input type="text" class="editor-input tokenscount" />
         </div>
-    </template>
+    </div>
+</template>
 
-    <template id="transition-node-editor-template">
-        <div class="node-editor-container">
-            <div class="property-container">
-                <span class="editor-label">Name</span>
-                <input type="text" class="editor-input name" />
-            </div>
-            <div class="property-container">
-                <span class="editor-label">Fine</span>
-                <input type="text" class="editor-input fine" />
-            </div>
-            <div class="property-container">
-                <span class="editor-label">Time delta</span>
-                <input type="text" class="editor-input timedelta" />
-             </div>
+<template id="transition-node-editor-template">
+    <div class="node-editor-container">
+        <div class="property-container">
+            <span class="editor-label">Name</span>
+            <input type="text" class="editor-input name" />
         </div>
-    </template>
+        <div class="property-container">
+            <span class="editor-label">Fine</span>
+            <input type="text" class="editor-input fine" />
+        </div>
+        <div class="property-container">
+            <span class="editor-label">Time delta</span>
+            <input type="text" class="editor-input timedelta" />
+            </div>
+    </div>
+</template>
 
-    <template id="edge-editor-template">
-        <div class="node-editor-container">
-            <div class="property-container">
-                <span class="editor-label">Weight</span>
-                <input type="text" class="editor-input weight" />
-            </div>
+<template id="edge-editor-template">
+    <div class="node-editor-container">
+        <div class="property-container">
+            <span class="editor-label">Weight</span>
+            <input type="text" class="editor-input weight" />
         </div>
-    </template>
-</body>
-</html>
+    </div>
+</template>
+

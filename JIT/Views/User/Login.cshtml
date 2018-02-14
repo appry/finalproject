@@ -1,0 +1,47 @@
+﻿@model JIT.Models.UserLogin
+
+
+@if(Request.IsAuthenticated)
+{
+    <div>You are already logged in as <strong>@HttpContext.Current.User.Identity.Name</strong></div>
+}
+else
+{ 
+    using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        <div class="login-form">
+            @Html.ValidationSummary(true, "", new { @class = "error-text" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "form-label" })
+                <div class="form-editor-container">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "error-text" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "form-label" })
+                <div class="form-editor-container">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "error-text" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "form-label" })
+                <div class="form-editor-container">
+                    @Html.EditorFor(model => model.RememberMe)
+                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "error-text" })
+                </div>
+            
+            </div>
+            @Html.ValidationMessage("InvalidCredentials", new { @class = "error-text" })
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn-submit" />
+            </div>
+        
+        </div>
+    }
+}
+    

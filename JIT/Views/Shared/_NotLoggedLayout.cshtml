@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/BasicLayoutStyle.css" />
+    @RenderSection("modeling_head", false)
+</head>
+<body>
+    <div id="nav-bar">
+        <ul id="nav-bar-list">
+            <li class="nav-items"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-items"><a href="#" class="nav-link">Tutorial</a></li>
+            <li class="nav-items"><a href="#" class="nav-link">Modelling</a></li>
+            <li class="nav-items-right" stlye="float:right;"><a href="~/User/Registration" class="nav-link">Register</a></li>
+            <li class="nav-items-right" stlye="float:right;"><a href="~/User/Login" class="nav-link">Log in</a></li>
+        </ul>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

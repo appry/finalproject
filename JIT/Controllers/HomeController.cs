@@ -9,6 +9,7 @@ namespace JIT.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        [Authorize]
         public ViewResult Index()
         {
             return View();

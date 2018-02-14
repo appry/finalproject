@@ -68,3 +68,12 @@ D:\Диплом\JIT\JIT\obj\Debug\JIT.csproj.CoreCompileInputs.cache
 D:\Диплом\JIT\JIT\obj\Debug\JIT.dll
 D:\Диплом\JIT\JIT\obj\Debug\JIT.pdb
 D:\Диплом\JIT\JIT\obj\Debug\JIT.csprojResolveAssemblyReference.cache
+D:\Диплом\JIT\JIT\bin\EntityFramework.dll
+D:\Диплом\JIT\JIT\bin\EntityFramework.SqlServer.dll
+D:\Диплом\JIT\JIT\bin\EntityFramework.xml
+D:\Диплом\JIT\JIT\bin\EntityFramework.SqlServer.xml
+D:\Диплом\JIT\JIT\bin\Newtonsoft.Json.dll
+D:\Диплом\JIT\JIT\bin\SendGrid.dll
+D:\Диплом\JIT\JIT\bin\Newtonsoft.Json.xml
+D:\Диплом\JIT\JIT\bin\SendGrid.pdb
+D:\Диплом\JIT\JIT\bin\SendGrid.xml

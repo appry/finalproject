@@ -13,11 +13,16 @@ namespace JIT
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            routes.MapRoute("Modelling", "Home/Index",
+                new { controller="Home", action="Index" });
+            routes.MapRoute("Verification", "User/Verification/{id}",
+                new { controller = "User", action = "VerifyAccount" });
+            routes.MapRoute("Registration", "User/Registration",
+                new { controller = "User", action = "Registration" });
+            routes.MapRoute("Signin", "User/Signin",
+                new { controller = "User", action = "Signin" });
+            routes.MapRoute("Default", "{controller}/{action}",
+                new { controller = "Home", action = "Index" });
         }
     }
 }

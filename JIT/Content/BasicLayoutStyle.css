@@ -1,0 +1,29 @@
+﻿body {
+}
+
+#nav-bar{
+    background-color:#000000;
+    height:50px;
+}
+#nav-bar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+.nav-items {
+    float:left;
+}
+.nav-items-right {
+    float: right;
+}
+.nav-link {
+    display:block;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding:14px 10px;
+}
+.nav-link:hover {
+    background-color: #FF851B;
+}
